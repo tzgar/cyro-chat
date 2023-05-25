@@ -1,3 +1,3 @@
 # cyro-chat
 chatbot app implementation nlp(natural language processing)
-![profile]("pp.jpeg")
+![profile](https://github.com/tzgar/cyro-chat/blob/master/pp.jpeg)
