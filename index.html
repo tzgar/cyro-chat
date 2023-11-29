@@ -1,34 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>chatku</title>
-        <link rel="stylesheet" href="style.css" />
-    </head>
-    <body>
-        <div class="container">
-            <div class="header">
-                <button class="clr-btn" onclick="clrChat()">clear</button>
-                <h1>cyro</h1>
-                <img src="pp.jpeg" alt="pp" />
-            </div>
-            <div class="chat-area" id="chat-area">
-                <div class="message receiver">
-                    <span>cyro</span>
-                    <p>hello</p>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>projek</title>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">
+                <div class="pp">
+                    <img src='https://raw.githubusercontent.com/tzgar/cyro-chat/master/pp.jpeg' class='pp'>
                 </div>
             </div>
-            <form class="chat-form" id="chat-form">
-                <input
-                    type="text"
-                    id="message-input"
-                    placeholder="message..." />
+            <div class="title">
+                <h1>shiro</h1>
+            </div>
+            <input id="colorpicker" type="color" onchange="changecolor(this)">
 
-                <button type="submit">send</button>
-            </form>
         </div>
-        <script src="script.js"></script>
-    </body>
-</html>
+        <div class="content">
+            <div class="chat-area" id="chat-area">
+                <div class="message">
+                    <div class="pp">
+                        <img src='https://raw.githubusercontent.com/tzgar/cyro-chat/master/pp.jpeg' class='pp'>
+                    </div>
+                    <div class="text-content">
+
+                        <div class="head-mess">
+                            <h3>shiro</h3>
+                        </div>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi ipsum beatae veniam amet non! Illum similique, quibusdam quisquam commodi, dolores, ipsum non rerum corporis distinctio quo necessitatibus saepe, amet esse?
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <form class="input-form" id="input-form" method="post">
+
+            <input type="text" id="message-input" placeholder="message...">
+            <button type="submit"><i data-feather="send"></i></button>
+        </form>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        feather.replace();
+    </script>
+</body>
+    </html>
