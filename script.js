@@ -1,9 +1,11 @@
-const chatForm = document.getElementById("chat-form");
+const chatForm = document.getElementById("input-form");
 const messageInput = document.getElementById("message-input");
 const chatArea = document.getElementById("chat-area");
-let username = prompt("masukkan username kamu");
+const container = document.getElementsByClassName;
+// let username = prompt("masukkan username kamu");
+username = "dev";
 // event listener
-chatForm.addEventListener("submit", (event) => {
+chatForm.addEventListener("submit", event => {
     event.preventDefault();
     const message = messageInput.value.toLowerCase();
     appendMessage(message, true);
@@ -16,9 +18,11 @@ chatForm.addEventListener("submit", (event) => {
 });
 
 function response(message) {
-    fetch("corpus.json")
-        .then((response) => response.json())
-        .then((data) => {
+    fetch(
+        "https://raw.githubusercontent.com/tzgar/cyro-chat/master/corpus.json"
+    )
+        .then(response => response.json())
+        .then(data => {
             const tokens = message.split(" ");
             let bestMatch = "";
             let bestScore = -1;
@@ -48,31 +52,39 @@ function response(message) {
                 appendMessage("Maaf, aku tidak mengetahuinya", false);
             }
         })
-        .catch((error) => console.error(error));
+        .catch(error => console.error(error));
 }
 
 function appendMessage(message, isSender) {
-    const messageElement = document.createElement("div");
+    // create element
     const textGroup = document.createElement("div");
-    const img = document.createElement("img");
-    img.setAttribute("src", "pp.jpeg");
+    const messageElement = document.createElement("div");
+    let imgElement = document.createElement("div");
+    const senderElement = document.createElement("div");
     const textElement = document.createElement("p");
-    const senderElement = document.createElement("span");
+
+    // add classList
+    senderElement.classList.add("head-mess");
+    textGroup.classList.add("text-content");
     messageElement.classList.add("message");
+    imgElement.classList.add("pp");
+    imgElement.innerHTML =
+        "<img src ='https://raw.githubusercontent.com/tzgar/cyro-chat/master/pp.jpeg' class='pp'>";
     if (isSender) {
         messageElement.classList.add("sender");
-        senderElement.innerText = username;
+        senderElement.innerHTML = `<h3>${username}</h3>`;
         textElement.innerText = ` ${message}`;
+        imgElement.innerHTML = "";
     }
 
     if (!isSender) {
         messageElement.classList.add("receiver");
-        senderElement.innerText = "cyro";
+        senderElement.innerHTML = "<h3>cyro</h3>";
         textElement.innerText = ` ${message}`;
-        messageElement.appendChild(img);
     }
 
-    // textElement.prepend(senderElement);
+    // appending element;
+    messageElement.appendChild(imgElement);
     textGroup.appendChild(senderElement);
     textGroup.appendChild(textElement);
     messageElement.appendChild(textGroup);
@@ -83,3 +95,21 @@ function appendMessage(message, isSender) {
 function clrChat() {
     chatArea.innerHTML = "";
 }
+
+var theInput = document.getElementById("favcolor");
+
+theInput.addEventListener(
+    "input",
+    function () {
+        var theColor = theInput.value;
+        console.log(theColor);
+        // Do something with `theColor` here.
+    },
+    false
+);
+
+// set color theme
+function changecolor(el) {
+  document.body.style.backgroundColor = el.value;
+        }
+            
