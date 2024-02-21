@@ -4,7 +4,7 @@
     margin: 0;
 }
 body {
-    background: #efefff;
+    background: #343440;
 }
 .container {
     letter-spacing: 1px;
@@ -60,7 +60,6 @@ img.pp {
     padding: 10px;
     padding-left: 20px;
     outline: none;
-    border: 2px solid;
     background: #ffffff80;
     border-radius: 30px;
     color: #00000090;
